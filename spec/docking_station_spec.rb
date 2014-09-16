@@ -6,7 +6,11 @@ require './lib/bike_container.rb'
 describe DockingStation do 
 
 	let(:bike) { Bike.new }
-	let(:station) { DockingStation.new(:capacity => 20) }
+	let(:station) { DockingStation.new(:capacity => 123) }
+
+	it "should allow setting default capacity on initializing" do 
+		expect(station.capacity).to eq(123)
+	end
 
 	def fill_station(station)
 		20.times { station.dock(Bike.new) }
@@ -42,6 +46,7 @@ describe DockingStation do
 		station.dock(broken_bike)
 		expect(station.available_bikes).to eq([working_bike])
 	end
+
 
 
 end
