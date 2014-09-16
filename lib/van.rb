@@ -1,6 +1,11 @@
+require_relative 'bike_container'
+
 class Van
 
-	def initialize
+	include BikeContainer
+
+	def broken_bikes
+		bikes.select { |bike| bike.broken? }
 	end
 
 end
