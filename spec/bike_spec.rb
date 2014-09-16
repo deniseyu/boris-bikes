@@ -1,4 +1,5 @@
 require './lib/bike' 
+require './lib/docking_station.rb'
 
 describe Bike do
 
@@ -18,8 +19,6 @@ describe Bike do
 		the_bike.fix!
 		expect(the_bike).not_to be_broken
 	end
-
-
 
 end
 	
