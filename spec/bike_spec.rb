@@ -1,4 +1,5 @@
 require './lib/bike' 
+require './spec/spec_helper.rb'
 
 describe Bike do
 
