@@ -1,6 +1,7 @@
 require './lib/docking_station.rb'
 require './lib/bike.rb'
 require './spec/spec_helper.rb'
+require './lib/bike_container.rb'
 
 describe DockingStation do 
 
