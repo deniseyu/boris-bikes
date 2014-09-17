@@ -12,7 +12,7 @@ class Person
 		station.available_bikes << @bike
 	end
 
-	def crash
+	def crash(bike)
 		@bike.break!
 	end
 
