@@ -8,7 +8,7 @@ describe Garage do
 	let(:bike) { Bike.new }
 	let(:broken_bike) { Bike.new.break! }
 	let(:van) { Van.new }
-	let(:garage) { Garage.new(:capacity => 100) }
+	let(:garage) { Garage.new(:capacity => 1000) }
 	
 	it "should fix broken bikes" do 
 		garage.dock(broken_bike)
