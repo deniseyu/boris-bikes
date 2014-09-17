@@ -23,7 +23,7 @@ module BikeContainer
 
 	def release(bike)
 		raise "No bikes for you" if bike_count == 0
-		@bikes.delete(bike)
+		bikes.delete(bike)
 	end
 
 	def full?

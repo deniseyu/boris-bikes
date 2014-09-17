@@ -11,6 +11,7 @@ describe Person do
 
 	it "should be able to rent a bike" do 
 		station.dock(bike)
+		station.release(bike)  
 		person.rent_bike_from(station)
 		expect(person.has_bike?).to eq true
 	end
