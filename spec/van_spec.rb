@@ -8,7 +8,7 @@ describe Van do
 
 	let(:bike) { Bike.new }
 	let(:broken_bike) { Bike.new.break! }
-	let(:van) { Van.new }
+	let(:van) { Van.new(:capacity => 40) }
 	let(:station) { DockingStation.new }
 	let(:garage) { Garage.new }
 
