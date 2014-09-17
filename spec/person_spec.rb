@@ -21,4 +21,11 @@ describe Person do
 		expect(person.has_bike?).to eq false 
 	end
 
+	it "should be able to break a bike" do 
+		station.dock(bike)
+		person.rent_bike_from(station)
+		person.crash
+		expect(bike.broken?).to eq true 
+	end
+
 end
