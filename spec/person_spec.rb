@@ -10,13 +10,13 @@ describe Person do
 	let(:station) { DockingStation.new }
 
 	it "should be able to rent a bike" do 
-		station.dock(bike)
-		station.release(bike)  
+		station.dock(bike) 
 		person.rent_bike_from(station)
 		expect(person.has_bike?).to eq true
 	end
 	
 	it "should be able to return a bike" do
+		station.dock(bike)
 		person.rent_bike_from(station)
 		person.return_bike_to(station)
 		expect(person.has_bike?).to eq false 
@@ -25,7 +25,7 @@ describe Person do
 	it "should be able to break a bike" do 
 		station.dock(bike)
 		person.rent_bike_from(station)
-		person.crash(bike)
+		person.crash
 		expect(bike.broken?).to eq true 
 	end
 

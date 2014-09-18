@@ -21,9 +21,16 @@ module BikeContainer
 		bikes << bike
 	end
 
-	def release(bike)
-		raise "No bikes for you" if bike_count == 0
-		bikes.delete(bike)
+	# We should make it so only bike class objects can be docked
+
+	def release_available
+		raise "No bikes for you" if available_bikes == []
+		bikes.delete(available_bikes.pop)
+	end
+
+	def release_broken
+		raise "No bikes for you" if broken_bikes == []
+		bikes.delete(broken_bikes.pop)
 	end
 
 	def full?

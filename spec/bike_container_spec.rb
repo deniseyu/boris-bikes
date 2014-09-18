@@ -8,6 +8,7 @@ class ContainerHolder; include BikeContainer; end
 describe BikeContainer do 
 	
 	let(:bike) { Bike.new }
+	let(:broken_bike) { Bike.new.break! }
 	let(:holder) { ContainerHolder.new }
 	
 	def fill_holder(holder)
@@ -20,12 +21,20 @@ describe BikeContainer do
 		expect(holder.bike_count).to eq(1)
 	end
 
-	it "should release a bike" do
+	it "should release an available bike" do
 		holder.dock(bike)
 		expect(holder.bike_count).to eq(1)
-		holder.release(bike)
+		holder.release_available
 		expect(holder.bike_count).to eq(0)
 	end
+
+	it "should release a broken bike" do 
+		holder.dock(broken_bike)
+		expect(holder.bike_count).to eq(1)
+		holder.release_broken
+		expect(holder.bike_count).to eq(0)
+	end
+
 
 	it "should know when it's full" do
 		expect(holder).not_to be_full
@@ -46,11 +55,15 @@ describe BikeContainer do
 		expect(holder.available_bikes).to eq([working_bike])
 	end
 
-	it "should not release a bike that is not there" do 
+	it "should not release an available bike that is not there" do 
 		expect(holder.available_bikes).to eq [] 
-		expect{ holder.release(bike) }.to raise_error(RuntimeError)
+		expect{ holder.release_available }.to raise_error(RuntimeError)
 	end
 
-# Problem: 
+	it "should not release a broken bike that is not there" do 
+		expect(holder.broken_bikes).to eq []
+		expect{ holder.release_available }.to raise_error(RuntimeError)
+	end
+
 
 end
