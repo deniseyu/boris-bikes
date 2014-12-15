@@ -6,6 +6,9 @@ require './spec/spec_helper.rb'
 class ContainerHolder; include BikeContainer; end 
 
 describe BikeContainer do 
+
+	# include BikeContainer
+
 	
 	let(:bike) { Bike.new }
 	let(:broken_bike) { Bike.new.break! }
@@ -16,9 +19,9 @@ describe BikeContainer do
 	end
 
 	it "should accept a bike" do 
-		expect(holder.bike_count).to eq(0)
+		expect(holder.bike_count).to eq 0
 		holder.dock(bike)
-		expect(holder.bike_count).to eq(1)
+		expect(holder.bike_count).to eq 1
 	end
 
 	it "should release an available bike" do
